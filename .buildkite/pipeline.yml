@@ -3,8 +3,7 @@ steps:
     command: echo "Hello, Buildkites!"
     notify:
        - github_commit_status:
-           context: "Passed"
-           if: build.state == "passed"
+           context: "my-custom-status-1"
        - github_commit_status:
-           context: "fail"
-           if: build.state != "failing"
+           context: "my-custom-status-2" 
+
