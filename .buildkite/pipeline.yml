@@ -1,6 +1,6 @@
 steps:
   - label: "Echo Name"
-    command: echo "Hello, Buildkites!"
+    command: ec
     notify:
        - github_commit_status:
            context: "my-custom-status-1"
