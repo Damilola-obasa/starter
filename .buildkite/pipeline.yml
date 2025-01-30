@@ -6,4 +6,9 @@ steps:
            context: "my-custom-status-1"
        - github_commit_status:
            context: "my-custom-status-2" 
-
+    input:
+      - name: "Branch"
+        description: "Select the branch to deploy"
+        name2:
+        required: true
+        default: "main"
