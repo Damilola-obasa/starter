@@ -1,38 +1,9 @@
 steps:
-  - input: "dami test"
-    prompt: |
-      this works now lets see again f
-    fields:
-      - select: "version"
-        key: "start"
-        options: 
-          - label : "Major"
-            Value: "major"
   - input: "Start Time"
     fields:
     - key: "start"
       hint: "Maximum time duration (ie. 12h) or specific datetime (ie. \"2024-12-10 12:00:00\" ) from which to start looking back for failed tasks"
       text: "Start Time"
       default: "12h"
-  - input: "End Time"
-    fields:
-    - key: "end"
-      hint: "Minimum time duration (ie. 2h) or specific datetime (ie. \"2024-12-11 12:00:00\" ) from which to stop looking back for failed tasks"
-      text: "End Time"
-      default: "2h"
-  - input: "Task Name"
-    fields:
-    - key: "task-name"
-      hint: "The name of the task to retry. Defaults to all tasks."
-      select: "Task Name"
-      default: "all"
-      options:
-      - label: "All"
-        value: "all"
-      - label: "Sync Lead to test"
-        value: "sync_leadt"
-
-  - wait
-  - label: "Generating Job Pipeline"
-    command: echo
-
+  - command: "buildkite-agent pipeline upload"
+    label: ":pipeline:"
