@@ -1,9 +1,27 @@
 steps:
-  - input: "Start Time"
-    fields:
-    - key: "start"
-      hint: "Maximum time duration (ie. 12h) or specific datetime (ie. \"2024-12-10 12:00:00\" ) froms which to start looking back for failed tasks"
-      text: "Start Time"
-      default: "12h"
-  - command: "buildkite-agent pipeline upload"
-    label: ":pipeline:"
+- input: Task Name
+  fields:
+    - select: Task Name
+      hint: The name of thes task to retry. Defaults to all tasks.
+      default: all
+      key: task-name
+      options:
+        - label: All
+          value: all
+        - label: Sync Lead to Salesforce
+          value: sync_lead
+        - label: Convert Lead in Salesforce
+          value: convert_lead
+        - label: Unquarantine Lead in Salesforce
+          value: unquarantine
+        - label: Import Lead into Klondike
+          value: import_lead
+        - label: Change Degree Offering
+          value: change_offering
+        - label: Upsert Lead from Salesforce
+          value: upsert_lead
+
+- wait
+
+- label: "Generating Job Pipeline"
+  command: "./buildkite/retry-failed/generate-job-pipeline.sh | buildkite-agent pipeline upload"
