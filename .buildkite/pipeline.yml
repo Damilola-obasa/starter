@@ -3,7 +3,7 @@ steps:
   fields:
     - text: End Time
       hint: Minimum time duration (e.g. 11h or 2d) from which to stop looking back for failed tasks
-      default: "2h"
+      default: "1h"
       key: end
 - input: Task Name
   fields:
