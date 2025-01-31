@@ -1,7 +1,5 @@
 steps:
   - input: "Start Time"
-    prompt: |
-    testing testing 
     fields:
     - key: "start"
       hint: "Maximum time duration (ie. 12h) or specific datetime (ie. \"2024-12-10 12:00:00\" ) from which to start looking back for failed tasks"
