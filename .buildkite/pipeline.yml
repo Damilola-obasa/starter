@@ -1,7 +1,7 @@
 steps:
   - input: "dami test"
     prompt: |
-      this works now
+      this works now lets see
     fields:
       - select: "version"
         key: "start"
