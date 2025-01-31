@@ -1,4 +1,13 @@
 steps:
+  - input: "dami test"
+    prompt:  |
+      this works now
+    fields:
+      - select: "version"
+        key: "start"
+        options: 
+          - label : "Major"
+            Value: "major"
   - input: "Start Time"
     fields:
     - key: "start"
