@@ -1,6 +1,6 @@
 steps:
   - input: "dami test"
-    prompt:  |
+    prompt: |
       this works now
     fields:
       - select: "version"
