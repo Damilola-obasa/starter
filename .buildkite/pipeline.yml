@@ -3,7 +3,7 @@ steps:
   fields:
     - text: Start Time
       hint: Maximum time duration (e.g. 12h or 3d) from which to start looking back for failed tasks
-      default: "2h"
+      default: "1h"
       key: start
       
 - input: End Time
