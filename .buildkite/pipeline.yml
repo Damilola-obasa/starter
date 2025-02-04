@@ -1,41 +1,8 @@
 steps:
-- input: Start Time
-  fields:
-    - text: Start Time
-      hint: Maximum time duration (e.g. 12h or 3d) from which to start looking back for failed tasks
-      default: "12h"
-      key: start
-      
-- input: End Time
-  fields:
-    - text: End Time
-      hint: Minimum time duration (e.g. 11h or 2d) from which to stop looking back for failed tasks
-      default: "2h"
-      key: end
-      
-- input: Task Name
-  fields:
-    - select: Task Name
-      hint: The name of thes task to retry. Defaults to all tasks.
-      default: all
-      key: task-name
-      options:
-        - label: All
-          value: all
-        - label: Sync Lead to Salesforce
-          value: sync_lead
-        - label: Convert Lead in Salesforce
-          value: convert_lead
-        - label: Unquarantine Lead in Salesforce
-          value: unquarantine
-        - label: Import Lead into Klondike
-          value: import_lead
-        - label: Change Degree Offering
-          value: change_offering
-        - label: Upsert Lead from Salesforce
-          value: upsert_lead
-
-- wait
-
-- label: "Generating Job Pipeline"
-  command: "./buildkite/retry-failed/generate-job-pipeline.sh | buildkite-agent pipeline upload"
+  - label: ":console: Annotation Test"
+    command: |
+      buildkite-agent annotate 'Example `default` style' --context 'ctx-default'
+      buildkite-agent annotate 'Example `info` style' --style 'info' --context 'ctx-info'
+      buildkite-agent annotate 'Example `warning` style' --style 'warning' --context 'ctx-warn'
+      buildkite-agent annotate 'Example `error` style' --style 'error' --context 'ctx-error'
+      buildkite-agent annotate 'Example `success` style' --style 'success' --context 'ctx-success'
